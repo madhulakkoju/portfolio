@@ -161,7 +161,8 @@ class Work {
     description,
     techstack,
     documentationLink,
-    bonafideLink
+    bonafideLink,
+    imageLink
   ) {
     this.company = company;
     this.role = role;
@@ -172,13 +173,95 @@ class Work {
     this.techstack = techstack;
     this.documentationLink = documentationLink;
     this.bonafideLink = bonafideLink;
+    this.imageLink=imageLink;
   }
 
   generateElement(dialogName) {
-    return `<div class="work">
-            <div class="work_header">${this.role + ", " + this.company}</div>
-            <div class="work_body"></div>
-        </div>`;
+    return `
+    <!-- Portfolio Item -->
+          <div class="col-md-6 col-lg-4 mb-5">
+            <div
+              class="portfolio-item mx-auto"
+              data-bs-toggle="modal"
+              data-bs-target="#${dialogName}"
+            >
+              <div
+                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"
+              >
+                <div
+                  class="portfolio-item-caption-content text-center text-white"
+                >
+                  <i class="fas fa-plus fa-3x"></i>
+                </div>
+              </div>
+              <img
+                class="img-fluid"
+                src="${this.imageLink}"
+                alt="..."
+              />
+            </div>
+          </div>
+          <!-- Portfolio Modal -->
+          <div
+            class="portfolio-modal modal fade"
+            id="${dialogName}"
+            tabindex="-1"
+            aria-labelledby="${dialogName}"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-xl">
+              <div class="modal-content">
+                <div class="modal-header border-0">
+                  <button
+                    class="btn-close"
+                    type="button"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body text-center pb-5">
+                  <div class="container">
+                    <div class="row justify-content-center">
+                      <div class="col-lg-8">
+                        <!-- Portfolio Modal - Title-->
+                        <h2
+                          class="portfolio-modal-title text-secondary text-uppercase mb-0"
+                        >
+                          ${this.company}
+                        </h2>
+                        <h4 class="text-secondary">${this.role}</h4>
+                        <p class="mb-4">${this.techstack}</p>
+                        <!-- Icon Divider-->
+                        <div class="divider-custom">
+                          <div class="divider-custom-line"></div>
+                          <div class="divider-custom-icon">
+                            <i class="fas fa-star"></i>
+                          </div>
+                          <div class="divider-custom-line"></div>
+                        </div>
+                        <!-- Portfolio Modal - Image-->
+                        <img
+                          class="img-fluid rounded mb-5"
+                          src="${ this.imageLink }"
+                          alt="..."
+                        />
+                        <!-- Portfolio Modal - Text-->
+                        <table><tr><td>Documentation</td><td>URL</td><td>Repo</td><tr></table>
+                        <p class="mb-4">
+                          ${this.description}
+                        </p>
+                        <button class="btn btn-primary" data-bs-dismiss="modal">
+                          <i class="fas fa-xmark fa-fw"></i>
+                          Close Window
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    `;
   }
 }
 
@@ -206,7 +289,7 @@ function renderPortfolio(myProfile){
   //Work Experience
   for (const i in myProfile["work"]) {
     w = myProfile["work"][i];
-    var work = new Work(w["company"],w["role"],w["employmentType"],w["from"],w["to"],w["description"],w["techstack"],w["documentationLink"],w["bonafideLink"]);
+    var work = new Work(w["company"],w["role"],w["employmentType"],w["from"],w["to"],w["description"],w["techstack"],w["documentationLink"],w["bonafideLink"],w["imageLink"]);
     renderingHtml += work.generateElement(work.company.replaceAll(" ","_")+"_"+work.from.replace(" ","_")+"_"+i);
   }
   //Projects
@@ -219,6 +302,36 @@ function renderPortfolio(myProfile){
 
   document.getElementById("portfolio-grid-items-container").innerHTML=renderingHtml;
 }
+function renderSkills(skills){
+  //do an unordered list
+  var skillsHtml = ` <h4 class="text-uppercase mb-4" style="text-align:center">Technical Skills</h4>`;
+skillsHtml += `
+<marquee direction="left" scrolldelay=10 scrollamount=4>
+<ul class="tech-slideshow" style="list-style-type:none">`;
+
+for (const iterator of skills) {
+  skillsHtml += `<li class="btn btn-outline-light  mx-1" >${iterator}</li>`;
+}
+skillsHtml+=`</ul></marquee>`;
+
+  document.getElementById("techSkills").innerHTML = skillsHtml;
+}
+
+function renderCertifications(certs){
+  //do an unordered list
+  var skillsHtml = ` <h4 class="text-uppercase mb-4" style="text-align:center">Certifications</h4>`;
+skillsHtml += `
+<marquee direction="right" scrolldelay=10 scrollamount=4>
+<ul class="tech-slideshow" style="list-style-type:none">`;
+
+for (const iterator of certs) {
+  skillsHtml += `<li class="btn btn-outline-light  mx-1" >${iterator["tech"]}</li>`;
+}
+skillsHtml+=`</ul></marquee>`;
+
+  document.getElementById("techCertifications").innerHTML = skillsHtml;
+}
+
 
 function renderAbout(myProfile){
   //About Me
@@ -228,6 +341,8 @@ function renderAbout(myProfile){
   document.getElementById("fb-id").href=myProfile["contactinfo"]["fb"];
   document.getElementById("twitter-id").href=myProfile["contactinfo"]["twitter"];
   document.getElementById("linkedin-id").href=myProfile["contactinfo"]["linkedin"];
+  renderSkills(myProfile["skills"]);
+  renderCertifications(myProfile["certifications"]);
 }
 
 function renderProfile(myProfile){
@@ -236,8 +351,8 @@ function renderProfile(myProfile){
   document.getElementById("masthead-heading-name").innerText=myProfile["name"];
   document.getElementById("masthead-desc").innerText=myProfile["about"];
   document.getElementById("masthead-image").src=myProfile["myImage"];
+  document.getElementById("page-top-id").innerText=myProfile["name"];
   
-  //document.getElementById("address-block").innerHTML=myProfile["address"];
   renderPortfolio(myProfile);
 }
 
@@ -254,3 +369,4 @@ async function makemyProfile() {
 }
 
 makemyProfile();
+

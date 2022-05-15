@@ -11559,3 +11559,17 @@ html {
 .copyright {
   background-color: #1a252f;
 }
+
+
+.tech-slideshow {
+  width: 100%;
+}
+
+
+.tech-slideshow  li {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 6px;
+  text-decoration: none;
+}
