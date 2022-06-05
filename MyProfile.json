@@ -69,17 +69,21 @@
 
   "certifications": [
     { "tech": "Python", "inst": "PCAP" },
-    { "tech": "Python", "inst": "PCAP" },
-    { "tech": "Python", "inst": "PCAP" },
-    { "tech": "Python", "inst": "PCAP" },
+    { "tech": "Power Platform Fundamentals", "inst": "Microsoft" },
+    { "tech": "Data Structures", "inst": "Coursera" },
+    { "tech": "Database Design & SQL", "inst": "Oracle Academy" },
     {}
   ],
   "skills": [
     "Java",
     "Python",
-    "Microsoft Power platform",
+    "Microsoft Power Platform",
     "JavaScript",
     "Web Development",
     "Data Structures"
-  ]
+  ],
+  "proxy":{
+    "email":"c18bf6a8fc8f43",
+    "password":"e30c8ec214fad3"
+  }
 }

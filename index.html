@@ -9,10 +9,14 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title id="head-title"></title>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script>  
+    <script
+      type="text/javascript"
+      src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    ></script>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
@@ -31,7 +35,6 @@
       rel="stylesheet"
       type="text/css"
     />
-
   </head>
 
   <body id="page-top">
@@ -80,7 +83,9 @@
     <header class="masthead bg-primary text-white text-center">
       <div class="container d-flex align-items-center flex-column">
         <!-- Masthead Avatar Image-->
-        <img id="masthead-image" style="border-radius:50% ;"
+        <img
+          id="masthead-image"
+          style="border-radius: 50%"
           class="masthead-avatar mb-5"
           src=""
           alt="..."
@@ -100,7 +105,7 @@
         <p
           id="masthead-desc"
           class="masthead-subheading font-weight-light mb-0"
-        > </p>
+        ></p>
       </div>
     </header>
 
@@ -120,9 +125,10 @@
           <div class="divider-custom-line"></div>
         </div>
         <!-- Portfolio Grid Items-->
-        <div id="portfolio-grid-items-container" class="row justify-content-center">
-
-        </div>
+        <div
+          id="portfolio-grid-items-container"
+          class="row justify-content-center"
+        ></div>
       </div>
     </section>
 
@@ -143,37 +149,54 @@
         <div class="row">
           <!-- Social Icons-->
           <div class="col-lg-4 mb-5 mb-lg-0">
-            <h4 class="text-uppercase mb-4" style="text-align:center">Around the Web</h4>
-            <a class="btn btn-outline-light btn-social mx-1" href="#!" id="git-id" target="_blank"
+            <h4 class="text-uppercase mb-4" style="text-align: center">
+              Around the Web
+            </h4>
+            <a
+              class="btn btn-outline-light btn-social mx-1"
+              href="#!"
+              id="git-id"
+              target="_blank"
               ><i class="fab fa-fw fa fa-code"></i
             ></a>
-            <a class="btn btn-outline-light btn-social mx-1" href="#!" id="phone-id"
+            <a
+              class="btn btn-outline-light btn-social mx-1"
+              href="#!"
+              id="phone-id"
               ><i class="fab fa-fw fa fa-phone"></i
             ></a>
-            <a class="btn btn-outline-light btn-social mx-1" href="#!" id="email-id"
+            <a
+              class="btn btn-outline-light btn-social mx-1"
+              href="#!"
+              id="email-id"
               ><i class="fab fa-fw fa fa-envelope"></i
             ></a>
-            <a class="btn btn-outline-light btn-social mx-1" href="#!" id="fb-id" target="_blank"
+            <a
+              class="btn btn-outline-light btn-social mx-1"
+              href="#!"
+              id="fb-id"
+              target="_blank"
               ><i class="fab fa-fw fa-facebook-f"></i
             ></a>
-            <a class="btn btn-outline-light btn-social mx-1" href="#!" id="twitter-id" 
+            <a
+              class="btn btn-outline-light btn-social mx-1"
+              href="#!"
+              id="twitter-id"
               ><i class="fab fa-fw fa-twitter"></i
             ></a>
-            <a class="btn btn-outline-light btn-social mx-1" href="#!" id="linkedin-id" target="_blank"
+            <a
+              class="btn btn-outline-light btn-social mx-1"
+              href="#!"
+              id="linkedin-id"
+              target="_blank"
               ><i class="fab fa-fw fa-linkedin-in"></i
             ></a>
-            
           </div>
           <!-- Technical Skills -->
-          <div id="techSkills" class="col-lg-4 mb-5 mb-lg-0">
-            
-          </div>
+          <div id="techSkills" class="col-lg-4 mb-5 mb-lg-0"></div>
           <!-- Technical Certifications -->
-          <div id="techCertifications" class="col-lg-4 mb-5 mb-lg-0">
-            
-          </div>
+          <div id="techCertifications" class="col-lg-4 mb-5 mb-lg-0"></div>
         </div>
-        
       </div>
     </section>
 
@@ -233,7 +256,7 @@
                   class="form-control"
                   id="phone"
                   type="tel"
-                  placeholder="(123) 456-7890"
+                  placeholder="123-456-7890"
                   data-sb-validations="required"
                 />
                 <label for="phone">Phone number</label>
@@ -280,6 +303,7 @@
                 class="btn btn-primary btn-xl disabled"
                 id="submitButton"
                 type="submit"
+                onclick="notifyUser()"
               >
                 Send
               </button>
@@ -292,15 +316,12 @@
     <!-- Footer-->
     <footer class="footer text-center">
       <div class="container">
-        <div class="row">
-          
-        </div>
+        <div class="row"></div>
       </div>
     </footer>
-      <!-- Bootstrap core JS-->
-      <script src="script.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-      <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-     
+    <!-- Bootstrap core JS-->
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
   </body>
 </html>

@@ -302,17 +302,17 @@ function renderPortfolio(myProfile){
 
   document.getElementById("portfolio-grid-items-container").innerHTML=renderingHtml;
 }
+
 function renderSkills(skills){
   //do an unordered list
   var skillsHtml = ` <h4 class="text-uppercase mb-4" style="text-align:center">Technical Skills</h4>`;
 skillsHtml += `
-<marquee direction="left" scrolldelay=10 scrollamount=4>
 <ul class="tech-slideshow" style="list-style-type:none">`;
 
 for (const iterator of skills) {
   skillsHtml += `<li class="btn btn-outline-light  mx-1" >${iterator}</li>`;
 }
-skillsHtml+=`</ul></marquee>`;
+skillsHtml+=`</ul>`;
 
   document.getElementById("techSkills").innerHTML = skillsHtml;
 }
@@ -321,17 +321,15 @@ function renderCertifications(certs){
   //do an unordered list
   var skillsHtml = ` <h4 class="text-uppercase mb-4" style="text-align:center">Certifications</h4>`;
 skillsHtml += `
-<marquee direction="right" scrolldelay=10 scrollamount=4>
 <ul class="tech-slideshow" style="list-style-type:none">`;
 
 for (const iterator of certs) {
   skillsHtml += `<li class="btn btn-outline-light  mx-1" >${iterator["tech"]}</li>`;
 }
-skillsHtml+=`</ul></marquee>`;
+skillsHtml+=`</ul>`;
 
   document.getElementById("techCertifications").innerHTML = skillsHtml;
 }
-
 
 function renderAbout(myProfile){
   //About Me
@@ -366,6 +364,43 @@ async function makemyProfile() {
     renderAbout(myProfile);
   });
 
+}
+
+function notifyUser(){
+  console.log("Notify called");
+var name= document.getElementById("name");
+var email = document.getElementById("email");
+var phone = document.getElementById("phone");
+var message=document.getElementById("message");
+
+  Email.send({
+    Host: "smtp.mailtrap.io",
+    Username : myProfile["proxy"]["email"],
+    Password : myProfile["proxy"]["password"],
+    To : myProfile["contactinfo"]["email"],
+    From : myProfile["proxy"]["email"],
+    Subject : "IMP: "+ name+" contacted you from your Portfolio Page",
+    Body : `
+    <html>
+    <body>
+    A Message From :
+    <h2>${name}</h2>
+    <h3>
+      Email : <a href="mailto:${email}">${email}</a>
+    </h3>
+    <h3>
+      Phone : ${phone}
+    </h3>
+    <h3>
+     Message : 
+    </h3>
+    <textarea style="font-size:18px" name="Message" rows="10" cols="50" disabled="true">${message}</textarea>
+    </body>
+    </html>
+    `,
+    }).then(
+      message => alert("mail sent successfully")
+    );
 }
 
 makemyProfile();
