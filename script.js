@@ -132,7 +132,22 @@ class Project {
                           alt="..."
                         />
                         <!-- Portfolio Modal - Text-->
-                        <table><tr><td>Documentation</td><td>URL</td><td>Repo</td><tr></table>
+                        <center>
+                        <table style="width:100%">
+                        <tr>
+                        <td align="center">
+                        <a href="${this.documentationLink}" target="_blank" rel="noopener noreferrer">${this.documentationLink!= null && this.documentationLink!= "" ? "Documentation" : ""}</a></p>
+                        </td>
+                        <td align="center">
+                        <a href="${this.url}" target="_blank" rel="noopener noreferrer">${this.url!= null && this.url!= "" ? "Url" : ""}</a></p>
+                        </td>
+                        <td align="center">
+                        <a href="${this.repo}" target="_blank" rel="noopener noreferrer">${this.repo!= null && this.repo!= "" ? "Repo" : ""}</a></p>
+                        </td>
+                        <tr>
+                        </table>
+                        </center>
+                        
                         <p class="mb-4">
                           ${this.description}
                         </p>
@@ -162,7 +177,9 @@ class Work {
     techstack,
     documentationLink,
     bonafideLink,
-    imageLink
+    imageLink,
+    repo,
+    url
   ) {
     this.company = company;
     this.role = role;
@@ -174,6 +191,8 @@ class Work {
     this.documentationLink = documentationLink;
     this.bonafideLink = bonafideLink;
     this.imageLink=imageLink;
+    this.repo = repo;
+    this.url = url;
   }
 
   generateElement(dialogName) {
@@ -231,6 +250,7 @@ class Work {
                         </h2>
                         <h4 class="text-secondary">${this.role}</h4>
                         <p class="mb-4">${this.techstack}</p>
+                        <p class="mb-4">${this.from+" - "+this.to}</p>
                         <!-- Icon Divider-->
                         <div class="divider-custom">
                           <div class="divider-custom-line"></div>
@@ -246,7 +266,21 @@ class Work {
                           alt="..."
                         />
                         <!-- Portfolio Modal - Text-->
-                        <table><tr><td>Documentation</td><td>URL</td><td>Repo</td><tr></table>
+                        <center>
+                        <table style="width:100%">
+                        <tr>
+                        <td align="center">
+                        <a href="${this.documentationLink}" target="_blank" rel="noopener noreferrer">${this.documentationLink!= null && this.documentationLink!= "" ? "Documentation" : ""}</a></p>
+                        </td>
+                        <td align="center">
+                        <a href="${this.url}" target="_blank" rel="noopener noreferrer">${this.url!= null && this.url!= "" ? "Url" : ""}</a></p>
+                        </td>
+                        <td align="center">
+                        <a href="${this.repo}" target="_blank" rel="noopener noreferrer">${this.repo!= null && this.repo!= "" ? "Repo" : ""}</a></p>
+                        </td>
+                        <tr>
+                        </table>
+                        </center>
                         <p class="mb-4">
                           ${this.description}
                         </p>
@@ -289,7 +323,7 @@ function renderPortfolio(myProfile){
   //Work Experience
   for (const i in myProfile["work"]) {
     w = myProfile["work"][i];
-    var work = new Work(w["company"],w["role"],w["employmentType"],w["from"],w["to"],w["description"],w["techstack"],w["documentationLink"],w["bonafideLink"],w["imageLink"]);
+    var work = new Work(w["company"],w["role"],w["employmentType"],w["from"],w["to"],w["description"],w["techstack"],w["documentationLink"],w["bonafideLink"],w["imageLink"],w["repo"],w["url"]);
     renderingHtml += work.generateElement(work.company.replaceAll(" ","_")+"_"+work.from.replace(" ","_")+"_"+i);
   }
   //Projects
