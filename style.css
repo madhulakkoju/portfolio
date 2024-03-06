@@ -11345,7 +11345,7 @@ html {
 }
 
 .page-section {
-  padding: 6rem 0;
+  padding: 4rem 0;
 }
 .page-section .page-section-heading {
   font-size: 2.25rem;
@@ -11359,7 +11359,7 @@ html {
 }
 
 .divider-custom {
-  margin: 1.25rem 0 1.5rem;
+  margin: 0.25rem 0 0.5rem;
   width: 100%;
   display: flex;
   justify-content: center;

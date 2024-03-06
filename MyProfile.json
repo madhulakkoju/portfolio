@@ -3,16 +3,16 @@
   "dob": "19-03-2000",
   "myImage": "./images/madhu.jpg",
   "about": "Aspiring Software Developer",
-  "resume-url": "https://drive.google.com/file/d/1T--_NIMeJ8KkfOsKxjRaHA7evcKAlt6i/preview",
+  "resume-url": "https://drive.google.com/file/d/113LdxXozQ9W1FlcuP-ajSbFkIhyvMr3R/view?usp=sharing",
   "contactinfo": {
     "linkedin": "https://www.linkedin.com/in/madhu-lakkoju/",
     "github": "https://github.com/madhulakkoju",
-    "email": "madhu.ml193@gmail.com",
-    "phone": "+91 8686156086",
+    "email": "Madhu.Lakkoju@stonybrook.edu",
+    "phone": "+19344519569",
     "fb": "https://www.facebook.com/madhu.lakkoju.71/",
     "twitter": "#!"
   },
-  "address": "30-265/11/51, Sainathapuram,<br/>A.S.Rao Nagar, ECIL<br/>Hyderabad, Telangana, IN",
+  "address": "700 Health Sciences Drive,<br/> Chapin L 2179, <br/> Stony Brook, NY-11790",
 
   "education": [
     {
@@ -27,14 +27,14 @@
       "company": "TCS Digital",
       "role": "Software Developer (Full Stack)",
       "employmentType": "Full Time",
-      "from": "September 2021",
-      "to": "Present",
-      "description": "Working on a project with Angular UI and Java backend. Part of a team which takes care of new features development. ",
-      "techstack": "Java, Angular, REST Services, Web Sockets",
+      "from": "August 2021",
+      "to": "August 2023",
+      "description": "Contributed to Standard life UK website and developed several customer facing webpages and supporting REST APIs in microservices architecture.",
+      "techstack": "Java, Angular, REST, AWS",
       "documentationLink": "",
       "repo": "",
       "url":"",
-      "imageLink": "./images/tcs.png"
+      "imageLink": "./images/tcs-sl2.png"
     },
     {
       "company": "TCS",
@@ -47,7 +47,20 @@
       "documentationLink": "",
       "repo": "https://github.com/madhulakkoju/tcs-internship-training-repo",
       "url":"https://drive.google.com/file/d/1NjoaB-GVhTOqOPQHPMNcQNk44YcJhy8I/view?usp=sharing",
-      "imageLink": "./images/tcs_internship_certificate.jpg"
+      "imageLink": "./images/tcs-ss.png"
+    },
+    {
+      "company": "D365 Solutions",
+      "role": "Dynamics 365 Developer",
+      "employmentType": "Internship",
+      "from": "January 2020",
+      "to": "February 2021",
+      "description": "Contributed to Customer centric Dynamics 365 CRM development using Microsoft Power Platform<br/>Utilized custom C# plugins to perform Data Sync/migration tasks in combination with Power Automate and Azure webjobs",
+      "techstack": "C#, Microsoft Power Platform, HTML, Javascript, CSS, Azure",
+      "documentationLink": "",
+      "repo": "",
+      "url":"",
+      "imageLink": "./images/power-platform.png"
     }
   ],
 

@@ -116,7 +116,7 @@ class Project {
                         >
                           ${this.name}
                         </h2>
-                        <p class="mb-4">${this.techstack}</p>
+                        <p class="mb-3">${this.techstack}</p>
                         <!-- Icon Divider-->
                         <div class="divider-custom">
                           <div class="divider-custom-line"></div>
@@ -127,7 +127,7 @@ class Project {
                         </div>
                         <!-- Portfolio Modal - Image-->
                         <img
-                          class="img-fluid rounded mb-5"
+                          class="img-fluid rounded mb-3"
                           src="${ this.imageLink }"
                           alt="..."
                         />
@@ -202,14 +202,10 @@ class Work {
             <div
               class="portfolio-item mx-auto"
               data-bs-toggle="modal"
-              data-bs-target="#${dialogName}"
-            >
-              <div
-                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"
-              >
-                <div
-                  class="portfolio-item-caption-content text-center text-white"
-                >
+              data-bs-target="#${dialogName}">
+
+              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100" >
+                <div class="portfolio-item-caption-content text-center text-white" >
                   <i class="fas fa-plus fa-3x"></i>
                 </div>
               </div>
@@ -221,13 +217,12 @@ class Work {
             </div>
           </div>
           <!-- Portfolio Modal -->
-          <div
-            class="portfolio-modal modal fade"
+          <div class="portfolio-modal modal fade"
             id="${dialogName}"
             tabindex="-1"
             aria-labelledby="${dialogName}"
-            aria-hidden="true"
-          >
+            aria-hidden="true" >
+
             <div class="modal-dialog modal-xl">
               <div class="modal-content">
                 <div class="modal-header border-0">
@@ -243,14 +238,12 @@ class Work {
                     <div class="row justify-content-center">
                       <div class="col-lg-8">
                         <!-- Portfolio Modal - Title-->
-                        <h2
-                          class="portfolio-modal-title text-secondary text-uppercase mb-0"
-                        >
+                        <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" >
                           ${this.company}
                         </h2>
                         <h4 class="text-secondary">${this.role}</h4>
-                        <p class="mb-4">${this.techstack}</p>
-                        <p class="mb-4">${this.from+" - "+this.to}</p>
+                        <p class="mb-3" ${!this.techstack ? 'hidden' : ''}>${this.techstack}</p>
+                        <p class="mb-3" ${!this.from ? 'hidden' : ''}>${this.from+" - "+this.to}</p>
                         <!-- Icon Divider-->
                         <div class="divider-custom">
                           <div class="divider-custom-line"></div>
@@ -261,7 +254,7 @@ class Work {
                         </div>
                         <!-- Portfolio Modal - Image-->
                         <img
-                          class="img-fluid rounded mb-5"
+                          class="img-fluid rounded mb-3"
                           src="${ this.imageLink }"
                           alt="..."
                         />
@@ -269,13 +262,13 @@ class Work {
                         <center>
                         <table style="width:100%">
                         <tr>
-                        <td align="center">
+                        <td align="center" ${!this.documentationLink ? 'hidden' : ''}>
                         <a href="${this.documentationLink}" target="_blank" rel="noopener noreferrer">${this.documentationLink!= null && this.documentationLink!= "" ? "Documentation" : ""}</a></p>
                         </td>
-                        <td align="center">
+                        <td align="center" ${!this.url ? 'hidden' : ''}>
                         <a href="${this.url}" target="_blank" rel="noopener noreferrer">${this.url!= null && this.url!= "" ? "Url" : ""}</a></p>
                         </td>
-                        <td align="center">
+                        <td align="center" ${!this.repo ? 'hidden' : ''}>
                         <a href="${this.repo}" target="_blank" rel="noopener noreferrer">${this.repo!= null && this.repo!= "" ? "Repo" : ""}</a></p>
                         </td>
                         <tr>
@@ -326,15 +319,22 @@ function renderPortfolio(myProfile){
     var work = new Work(w["company"],w["role"],w["employmentType"],w["from"],w["to"],w["description"],w["techstack"],w["documentationLink"],w["bonafideLink"],w["imageLink"],w["repo"],w["url"]);
     renderingHtml += work.generateElement(work.company.replaceAll(" ","_")+"_"+work.from.replace(" ","_")+"_"+i);
   }
-  //Projects
 
+  document.getElementById("portfolio-grid-items-container").innerHTML=renderingHtml;
+}
+
+
+
+function renderPortfolioProjects(myProfile){
+  var renderingHtml = ``;
+  //Projects
   for (const i in myProfile["projects"]) {
     w = myProfile["projects"][i];
     var proj = new Project(w["name"],w["repo"],w["url"],w["description"],w["imageLink"],w["techStack"],w["documentationLink"]);
     renderingHtml+= proj.generateElement(proj.name.replaceAll(" ","_")+"_"+i);
   }
 
-  document.getElementById("portfolio-grid-items-container").innerHTML=renderingHtml;
+  document.getElementById("portfolio-projects-grid-items-container").innerHTML=renderingHtml;
 }
 
 function renderSkills(skills){
@@ -386,6 +386,7 @@ function renderProfile(myProfile){
   document.getElementById("page-top-id").innerText=myProfile["name"];
   
   renderPortfolio(myProfile);
+  renderPortfolioProjects(myProfile);
 }
 
 //To retrieve Profile from MyProfile.json and create the HTML content for webpage.
