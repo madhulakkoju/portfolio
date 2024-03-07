@@ -199,8 +199,7 @@ class Work {
     return `
     <!-- Portfolio Item -->
           <div class="col-md-6 col-lg-4 mb-5">
-            <div
-              class="portfolio-item mx-auto"
+            <div class="portfolio-item mx-auto"
               data-bs-toggle="modal"
               data-bs-target="#${dialogName}">
 
@@ -293,17 +292,22 @@ class Work {
 }
 
 class Education {
-  constructor(schoolname, score, grade) {
+  constructor(schoolname, gpa, graduationdate, address, title, courses, transcripturl) {
     this.schoolname = schoolname;
-    this.score = score;
-    this.grade = grade;
+    this.gpa = gpa;
+    this.graduationdate = graduationdate;
+    this.address = address;
+    this.title = title;
+    this.courses = courses;
+    this.transcripturl = transcripturl;
+
   }
   generateElement() {
     return `<div class="edu">
-                <div class="edu_header">${
-                  this.grade + ", " + this.schoolname
-                }</div>
-                <div class="edu_body"></div>
+                <div class="edu_header">${ this.title + ", </br>" + this.schoolname }</div>
+                <div class="edu_body">
+
+                </div>
             </div>`;
   }
 }

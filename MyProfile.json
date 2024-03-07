@@ -16,9 +16,34 @@
 
   "education": [
     {
-      "schoolname": "GRIET, Hyd",
-      "score": 86.1,
-      "grade": "BTech in CSE"
+      "schoolname": "Stony Brook University<br/>State University of New York",
+      "gpa": 3.0,
+      "graduationdate": "December 2024",
+      "address": "New York, USA",
+      "title": "Masters in Computer Science",
+      "courses": [
+        "Distributed & Decentralized Systems",
+        "Operating Systems",
+        "Hybrid Systems",
+        "Advanced Algorithms"
+      ],
+      "transcripturl": ""
+    },
+    {
+      "schoolname": "Jawaharlal Nehru Technological University",
+      "gpa": 8.61,
+      "graduationdate": "July 2021",
+      "address": "Hyderabad, India",
+      "title": "Bachelors in Computer Science Engineering",
+      "courses": [
+        "Cloud Computing",
+        "Database Systems",
+        "Wed Technologies",
+        "Computer Networks",
+        "Security",
+        "Information Retrieval Systems"
+      ],
+      "transcripturl": ""
     }
   ],
 
@@ -66,6 +91,15 @@
 
   "projects": [
     {
+      "name": "Adaptive Blockchain",
+      "repo": "",
+      "url": "",
+      "description": "Implementing Adaptivity in Transaction management addressing consensus Byzantine Failures using PBFT algorithms through Multi-threading and State Machine Replication with 36 combinations in exploration.",
+      "imageLink": "./images/blockchain-3.png",
+      "techStack": "Distributed & Decentralized Systems; Java; Machine Learning; Python",
+      "documentationLink": ""
+    },
+    {
       "name": "Plant Species and Growth analysis",
       "repo": "https://github.com/madhulakkoju/PlantGrowthAnalysisImageProcessingML",
       "url": "",
@@ -91,6 +125,32 @@
       "imageLink": "./images/rentalmanager.png",
       "techStack": "Java, JDBC, Applets",
       "documentationLink": ""
+    },
+    {
+      "name": "CaseWare Cloud Integration",
+      "repo": "",
+      "url": "",
+      "description": "",
+      "imageLink": "./images/bridge-to-the-cloud.png",
+      "techStack": "C#, JavaScript, Client Ref API, Power Automate, Plugins, XRM",
+      "documentationLink": ""
+    },
+    {
+      "name": "Financial Statements Portal Integration",
+      "repo": "",
+      "url": "",
+      "description": "",
+      "imageLink": "./images/dashboard.png",
+      "techStack": "Power Pages, HTML, JavaScript, CSS, C#, Actions",
+      "documentationLink": ""
+    },{
+      "name": "Feedback Survey Portal",
+      "repo": "",
+      "url": "",
+      "description": "",
+      "imageLink": "./images/power-pages.jpg",
+      "techStack": "Power Pages, Automate, Plugins, JavaScript, C#",
+      "documentationLink": ""
     }
   ],
 
@@ -105,8 +165,14 @@
     "Java",
     "Python",
     "Microsoft Power Platform",
-    "JavaScript",
     "Web Development",
+    "AWS",
+    "C#",
+    "Dynamics 365 CRM",
+    "Angular",
+    "React",
+    "Javascript",
+    "HTML CSS",
     "Data Structures"
   ],
   "proxy":{

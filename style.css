@@ -653,7 +653,11 @@ progress {
 
 .img-fluid {
   max-width: 100%;
-  height: auto;
+  align: center;
+  align-items: center;
+  height: fit-content;
+  max-height: 100%;
+  justify
 }
 
 .img-thumbnail {
@@ -726,6 +730,7 @@ progress {
   margin-top: calc(-1 * var(--bs-gutter-y));
   margin-right: calc(-0.5 * var(--bs-gutter-x));
   margin-left: calc(-0.5 * var(--bs-gutter-x));
+  align-items: center;
 }
 .row > * {
   flex-shrink: 0;
@@ -11345,7 +11350,7 @@ html {
 }
 
 .page-section {
-  padding: 4rem 0;
+  padding: 3rem 0;
 }
 .page-section .page-section-heading {
   font-size: 2.25rem;
@@ -11359,7 +11364,7 @@ html {
 }
 
 .divider-custom {
-  margin: 0.25rem 0 0.5rem;
+  margin: 1.25rem 0 1.5rem;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -11513,11 +11518,15 @@ html {
 .portfolio .portfolio-item {
   cursor: pointer;
   position: relative;
-  display: block;
-  max-width: 25rem;
+  display: flex;
+  max-width: 24rem;
+  height: 18rem;
   border-radius: 0.5rem;
   overflow: hidden;
+  justify-content: center;
+  align-items: center
 }
+
 .portfolio .portfolio-item .portfolio-item-caption {
   position: absolute;
   top: 0;
