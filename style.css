@@ -660,6 +660,14 @@ progress {
   justify
 }
 
+.img-fluid-edu {
+  max-width: 100%;
+  align: center;
+  align-items: center;
+  height: auto;
+  justify
+}
+
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;

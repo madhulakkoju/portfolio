@@ -16,7 +16,8 @@
 
   "education": [
     {
-      "schoolname": "Stony Brook University<br/>State University of New York",
+      "schoolname": "Stony Brook University",
+      "univname": "State University of New York",
       "gpa": 3.0,
       "graduationdate": "December 2024",
       "address": "New York, USA",
@@ -27,14 +28,16 @@
         "Hybrid Systems",
         "Advanced Algorithms"
       ],
-      "transcripturl": ""
+      "transcripturl": "",
+      "iconurl": "./images/sbu.png"
     },
     {
       "schoolname": "Jawaharlal Nehru Technological University",
+      "univname": "",
       "gpa": 8.61,
       "graduationdate": "July 2021",
       "address": "Hyderabad, India",
-      "title": "Bachelors in Computer Science Engineering",
+      "title": "Bachelors in Computer Science",
       "courses": [
         "Cloud Computing",
         "Database Systems",
@@ -43,7 +46,8 @@
         "Security",
         "Information Retrieval Systems"
       ],
-      "transcripturl": ""
+      "transcripturl": "",
+      "iconurl": "./images/jntuh2.png"
     }
   ],
 

@@ -292,24 +292,107 @@ class Work {
 }
 
 class Education {
-  constructor(schoolname, gpa, graduationdate, address, title, courses, transcripturl) {
+  constructor(schoolname,univname, gpa, graduationdate, address, title, courses, transcripturl, iconurl) {
     this.schoolname = schoolname;
+    this.univname = univname;
     this.gpa = gpa;
     this.graduationdate = graduationdate;
     this.address = address;
     this.title = title;
     this.courses = courses;
     this.transcripturl = transcripturl;
+    this.iconurl = iconurl;
 
   }
-  generateElement() {
-    return `<div class="edu">
-                <div class="edu_header">${ this.title + ", </br>" + this.schoolname }</div>
-                <div class="edu_body">
-
+  generateElement(dialogName) {
+      return `
+      <!-- Education Item 1-->
+            <div class="col-md-6 col-lg-4 mb-5">
+              <div
+                class="portfolio-item mx-auto"
+                data-bs-toggle="modal"
+                data-bs-target="#${dialogName}"
+              >
+                <div
+                  class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"
+                >
+                  <div
+                    class="portfolio-item-caption-content text-center text-white"
+                  >
+                  </div>
                 </div>
-            </div>`;
-  }
+                <img
+                  class="img-fluid-edu"
+                  src="${this.iconurl}"
+                  alt="..."
+                />
+              </div>
+            </div>
+            <!-- Portfolio Modal 1-->
+            <div
+              class="portfolio-modal modal fade"
+              id="${dialogName}"
+              tabindex="-1"
+              aria-labelledby="${dialogName}"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-xl text-dark ">
+                <div class="modal-content">
+                  <div class="modal-header border-0">
+                    <button
+                      class="btn-close"
+                      type="button"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body text-center pb-5">
+                    <div class="container">
+                      <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                          <!-- Portfolio Modal - Title-->
+                          <h3 class="portfolio-modal-title text-secondary text-uppercase mb-0" >
+                            ${this.schoolname}
+                          </h3>
+                          <h4 class="text-uppercase mb-0" ${this.univname == "" ? "hidden":"" } >
+                            ${this.univname}
+                          </h4>
+                          <h4 class="mb-3 ">${this.title} </h4>
+                          <!-- Icon Divider-->
+                          <div class="divider-custom">
+                            <div class="divider-custom-line"></div>
+                            <div class="divider-custom-icon">
+                              <i class="fas fa-star"></i>
+                            </div>
+                            <div class="divider-custom-line"></div>
+                          </div>
+                          <!-- Portfolio Modal - Image-->
+                          <!--
+                          <img
+                            class="img-fluid rounded mb-3"
+                            src="${ this.iconurl }"
+                            alt="..."
+                          />
+                          -->
+                          <!-- Portfolio Modal - Text-->
+                          <center>
+                          Coursework:
+                          ${this.courses}
+                          </center>
+
+                          <button class="btn btn-primary" data-bs-dismiss="modal">
+                            <i class="fas fa-xmark fa-fw"></i>
+                            Close Window
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+      `;
+    }
 }
 
 var myProfile={};
@@ -340,6 +423,21 @@ function renderPortfolioProjects(myProfile){
 
   document.getElementById("portfolio-projects-grid-items-container").innerHTML=renderingHtml;
 }
+
+function renderEducation(myProfile){
+  var renderingHtml = ``;
+  //Education
+  for (const i in myProfile["education"]) {
+    w = myProfile["education"][i];
+    var edu = new Education(w["schoolname"],w["univname"],w["gpa"],w["graduationdate"],w["address"],w["title"],w["courses"],w["transcripturl"],w["iconurl"]);
+    console.log(edu);
+    renderingHtml+= edu.generateElement(edu.schoolname.split("<br/>")[0].replaceAll(" ","_")+"_"+i);
+    console.log('check')
+  }
+
+  document.getElementById("education-grid-items-container").innerHTML=renderingHtml;
+}
+
 
 function renderSkills(skills){
   //do an unordered list
@@ -390,6 +488,7 @@ function renderProfile(myProfile){
   document.getElementById("page-top-id").innerText=myProfile["name"];
   
   renderPortfolio(myProfile);
+  renderEducation(myProfile);
   renderPortfolioProjects(myProfile);
 }
 
