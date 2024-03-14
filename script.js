@@ -486,7 +486,8 @@ function renderProfile(myProfile){
   document.getElementById("masthead-desc").innerText=myProfile["about"];
   document.getElementById("masthead-image").src=myProfile["myImage"];
   document.getElementById("page-top-id").innerText=myProfile["name"];
-  
+  document.getElementById("linkedin-badge").innerHTML = myProfile["linkedin-badge"];
+
   renderPortfolio(myProfile);
   renderEducation(myProfile);
   renderPortfolioProjects(myProfile);

@@ -11590,3 +11590,7 @@ html {
   padding: 6px;
   text-decoration: none;
 }
+
+.linkedin-badge-css .badge-base__link {
+    display:none;
+}
