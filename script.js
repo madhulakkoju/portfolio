@@ -127,7 +127,7 @@ class Project {
                         </div>
                         <!-- Portfolio Modal - Image-->
                         <img
-                          class="img-fluid rounded mb-3"
+                          class="img-fluid-half-size rounded mb-3"
                           src="${ this.imageLink }"
                           alt="..."
                         />
